@@ -9,7 +9,7 @@ import { useSalesToday } from '@/hooks/useSalesToday'
 import SapLoader from '@/Components/SapLoader'
 import { Button } from '@nextui-org/react'
 
-export default function Dashboard ({ auth, unreadNotifications }) {
+export default function Dashbod ({ auth, unreadNotifications }) {
   const { valores, loading, trmInCop } = useTrm()
   const { loaderKpiSap, error, kpi, getData } = useSalesToday()
 
