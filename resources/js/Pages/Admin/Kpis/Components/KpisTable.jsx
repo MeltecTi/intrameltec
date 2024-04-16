@@ -29,12 +29,11 @@ export default function KpisTable () {
                     <TableRow key={id} className='text-center'>
                       <TableCell>{name}</TableCell>
                       <TableCell>
-                        <p className='text-red-500 font-semibold italic'> LA URL DEL REPORTE NO SE PUEDE MOSTRAR </p>
+                        <p className='text-red-500 font-semibold italic'> LA URL DEL REPORTE NO SE PUEDE aasdjkjalkdjaks </p>
                       </TableCell>
                       <TableCell>
                         <Link className='text-white bg-blue-800 px-5 py-2 rounded-lg mx-1 hover:bg-blue-600 transition ease-out' href={route('kpi.reports.show', id)}>Ver</Link>
                       </TableCell>
-                        <Link className='text-white bg-red-800 px-5 py-2 rounded-lg mx-1 hover:bg-red-600 transition ease-out' href={route('kpi.reports.show', id)}>Eliminar</Link>
                     </TableRow>
                   )
                 } else {
