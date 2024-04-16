@@ -29,7 +29,7 @@ export default function Dashboard ({ auth, unreadNotifications }) {
           {loading ? <p>Cargando...</p> : <TrmGraph valores={valores} trmInCop={trmInCop} />}
 
           <div className='bg-white overflow-hidden shadow-sm sm:rounded-lg p-4 col-span-2'>
-            <h2 className='font-bold text-xl text-center py-2'>Meta Meltec 2023</h2>
+            <h2 className='font-bold text-xl text-center py-2'>Meta Meltec 2024</h2>
 
             <h5 className='text-right p-4 font-semibold italic text-zinc-600/50'>Ultima Actualizació: <span>{dateTimeFormatted(new Date())}</span> </h5>
 
