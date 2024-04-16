@@ -40,7 +40,7 @@ export default function Dashboard ({ auth, unreadNotifications }) {
             {error && (<h3 className='text-center bg-red-500 rounded-md py-6 text-white font-bold'>Error al Obtener los datos de ventas de SAP - Contacte con Administrador del sistema para mas información</h3>)}
 
             <div className='flex justify-end m-2'>
-              <Button color='secondary' isDisabled={loaderKpiSap} onClick={getData}>Datos Regenerar</Button>
+              <Button color='secondary' isDisabled={loaderKpiSap} onClick={getData}>Regenerando</Button>
             </div>
           </div>
         </div>
