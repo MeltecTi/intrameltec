@@ -6,6 +6,15 @@ import Paginator from '@/Components/Paginator'
 
 export default function KpisTable () {
   const { auth, reports, reportsData2 } = usePage().props
+
+  const handleDelete = async (id) => {
+    try {
+      const response = await axios.delete(`kpi.reports.destroy`)
+      console.log(response.data) 
+    } catch (error) {
+      console.error(error)
+    }
+  }
   return (
     <Table
       aria-label='Tabla de informes de PowerBy' bottomContent={<Paginator paginate={reports.links} />}
@@ -33,7 +42,7 @@ export default function KpisTable () {
                       </TableCell>
                       <TableCell>
                         <Link className='text-white bg-blue-800 px-5 py-2 rounded-lg mx-1 hover:bg-blue-600 transition ease-out' href={route('kpi.reports.show', id)}>Ver</Link>
-                        <a className='text-white bg-red-800 px-5 py-2 rounded-lg mx-1 hover:bg-red-600 transition ease-out' href={route('kpi.reports.destroy', id)}>Eliminar</a>
+                        <button className='text-white bg-red-800 px-5 py-2 rounded-lg mx-1 hover:bg-red-600 transition ease-out' onClick={() => handleDelete(id)}>Eliminar</button>
 
                       </TableCell>
                     </TableRow>
