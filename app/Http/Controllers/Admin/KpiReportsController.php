@@ -95,4 +95,23 @@ class KpiReportsController extends Controller
             'roles' => $data->roles
         ]);
     }
+
+    public function destroy($uuid){
+        try {
+            // Buscar el KPI por su UUID
+            $kpi = KpiReport::where('id', $uuid)->first();
+    
+            // Verificar si el KPI existe
+            if (!$kpi) {
+                throw new Exception('El KPI no fue encontrado');
+            }
+    
+            // Eliminar el KPI
+            $kpi->delete();
+    
+            return response()->json(['message' => 'KPI eliminado correctamente'], 200);
+        } catch (Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 400);
+        }
+    }
 }
