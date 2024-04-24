@@ -5,7 +5,7 @@ import { Link, usePage } from '@inertiajs/react'
 import DeleteButton from '../Fragments/DeleteButton2'
 import Paginator from '@/Components/Paginator'
 
-export default function KpisTable () {
+export default function KpisTable (id) {
   const { auth, reports, reportsData2 } = usePage().props
 
 
@@ -37,8 +37,13 @@ export default function KpisTable () {
                       </TableCell>
                       <TableCell>
                         <Link className='text-white bg-blue-800 px-5 py-2 rounded-lg mx-1 hover:bg-blue-600 transition ease-out' href={route('kpi.reports.show', id)}>Ver</Link>
-                        
-                          <DeleteButton id={id} /> 
+                        {
+                          user === ROLES_CONSTANTS.Admin
+                            ? (
+                              <DeleteButton id={id} />
+                              )
+                            : ''
+                        }
                       </TableCell>
                     </TableRow>
                   )
