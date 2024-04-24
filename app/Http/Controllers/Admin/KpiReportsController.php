@@ -99,7 +99,7 @@ class KpiReportsController extends Controller
     public function destroy(string $uuid)
     {
         try {
-            $kpi = KpiReport::findOrFail($uuid);
+            $kpi = KpiReport::where('id', $uuid)->first();
             $kpi->delete();
 
             return response()->json(['message' => 'Informe de KPI eliminado correctamente'], 200);
