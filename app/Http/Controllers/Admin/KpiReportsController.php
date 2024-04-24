@@ -96,12 +96,12 @@ class KpiReportsController extends Controller
         ]);
     }
 
-    public function destroy(string $id)
+    public function destroy($uuid)
     {
         try {
             //$kpi = KpiReport::where('id', $id)->first();
 
-            $delete= KpiReport::findOrFail($id);
+            $delete= KpiReport::findOrFail($uuid);
 
             $delete->delete();
 
