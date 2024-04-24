@@ -11,7 +11,7 @@ export default function DeleteButton ({ id }) {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const request = await axios.delete(route('kpi.reports.destroy', id))
+          const request = await axios.delete(route('kpi.reports.destroy'))
           if (request.status !== 200) {
             throw new Error(request.data.message)
           } else {
