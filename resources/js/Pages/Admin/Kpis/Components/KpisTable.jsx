@@ -9,7 +9,7 @@ export default function KpisTable () {
 
   const handleDelete = async (id) => {
     try {
-      const response = await axios.delete(`/kpi/delete/${id}`)
+      const response = await axios.delete(`/kpis/delete/${id}`)
       console.log(response.data)
     } catch (error) {
       console.error(error) 
