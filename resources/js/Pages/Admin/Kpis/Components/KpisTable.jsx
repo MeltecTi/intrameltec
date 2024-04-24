@@ -2,19 +2,14 @@
 import { Table, TableColumn, TableHeader, TableBody, TableCell, TableRow } from '@nextui-org/react'
 import { TABLE_KPIS_HEADER } from '@/constants/initialValues'
 import { Link, usePage } from '@inertiajs/react'
+import DeleteButton from '../Fragments/DeleteButton2'
 import Paginator from '@/Components/Paginator'
 
 export default function KpisTable () {
   const { auth, reports, reportsData2 } = usePage().props
 
-  const handleDelete = async (id) => {
-    try {
-      const response = await axios.delete(`/kpi/reports/${id}`) // Envía la solicitud DELETE a la ruta correspondiente
-      console.log(response.data) // Muestra la respuesta del servidor en la consola
-    } catch (error) {
-      console.error(error) // Maneja cualquier error que ocurra durante la eliminación
-    }
-  }
+
+
   return (
     <Table
       aria-label='Tabla de informes de PowerBy' bottomContent={<Paginator paginate={reports.links} />}
@@ -42,7 +37,10 @@ export default function KpisTable () {
                       </TableCell>
                       <TableCell>
                         <Link className='text-white bg-blue-800 px-5 py-2 rounded-lg mx-1 hover:bg-blue-600 transition ease-out' href={route('kpi.reports.show', id)}>Ver</Link>
-                        <button className='text-white bg-red-800 px-5 py-2 rounded-lg mx-1 hover:bg-red-600 transition ease-out' onClick={() => handleDelete(id)}>Eliminar</button>
+                        ? (
+                          <DeleteButton id={id} />
+                          )
+                        : ''
                       </TableCell>
                     </TableRow>
                   )
