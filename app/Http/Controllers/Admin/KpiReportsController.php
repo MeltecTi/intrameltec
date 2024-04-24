@@ -96,18 +96,24 @@ class KpiReportsController extends Controller
         ]);
     }
 
-    public function destroy($uuid)
+    public function destroy(string $uuid)
     {
-        try {
-            //$kpi = KpiReport::where('id', $id)->first();
+    try {
+        // Buscar el recurso por su UUID
+        $resource = KpiReport::where('id', $uuid)->first();
 
-            $delete= KpiReport::findOrFail($uuid);
+        // Verificar si el recurso existe
+        if (!$resource) {
+            throw new Exception('El recurso no fue encontrado');
+        }
 
-            $delete->delete();
+        // Eliminar el recurso
+        $resource->delete();
 
-            return response()->json(['message' => 'Informe de KPI eliminado correctamente'], 200);
+        return response()->json(['message' => 'Informe de KPI eliminado correctamente'], 200);
         } catch (Exception $e) {
-            return response()->json(['error' => $e->getMessage()], 400);
+        return response()->json(['error' => $e->getMessage()], 400);
         }
     }
+
 }
