@@ -9,10 +9,10 @@ export default function KpisTable () {
 
   const handleDelete = async (id) => {
     try {
-      const response = await axios.delete(`kpi.reports.destroy`)
-      console.log(response.data) 
+      const response = await axios.delete(`/kpi/delete/${id}`)
+      console.log(response.data)
     } catch (error) {
-      console.error(error)
+      console.error(error) 
     }
   }
   return (
@@ -43,7 +43,6 @@ export default function KpisTable () {
                       <TableCell>
                         <Link className='text-white bg-blue-800 px-5 py-2 rounded-lg mx-1 hover:bg-blue-600 transition ease-out' href={route('kpi.reports.show', id)}>Ver</Link>
                         <button className='text-white bg-red-800 px-5 py-2 rounded-lg mx-1 hover:bg-red-600 transition ease-out' onClick={() => handleDelete(id)}>Eliminar</button>
-
                       </TableCell>
                     </TableRow>
                   )
