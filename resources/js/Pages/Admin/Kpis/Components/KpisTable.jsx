@@ -9,10 +9,10 @@ export default function KpisTable () {
 
   const handleDelete = async (id) => {
     try {
-      const response = await axios.delete(`/kpis/delete/${id}`)
-      console.log(response.data)
+      const response = await axios.delete(`/kpi/delete/${id}`) // Envía la solicitud DELETE a la ruta correspondiente
+      console.log(response.data) // Muestra la respuesta del servidor en la consola
     } catch (error) {
-      console.error(error) 
+      console.error(error) // Maneja cualquier error que ocurra durante la eliminación
     }
   }
   return (
@@ -42,22 +42,12 @@ export default function KpisTable () {
                       </TableCell>
                       <TableCell>
                         <Link className='text-white bg-blue-800 px-5 py-2 rounded-lg mx-1 hover:bg-blue-600 transition ease-out' href={route('kpi.reports.show', id)}>Ver</Link>
-                        <button
-                          className="text-white bg-red-800 px-5 py-2 rounded-lg mx-1 hover:bg-red-600 transition ease-out"
-                          onClick={() => {
-                            if (window.confirm('¿Estás seguro de que deseas eliminar este registro?')) {
-                              handleDelete(id);
-                            }
-                          }}
-                          disabled={isLoading}
-                        >
-                          {isLoading ? 'Eliminando...' : 'Eliminar'}
-                        </button>
+                        <button className='text-white bg-red-800 px-5 py-2 rounded-lg mx-1 hover:bg-red-600 transition ease-out' onClick={() => handleDelete(id)}>Eliminar</button>
                       </TableCell>
                     </TableRow>
-                  );
+                  )
                 } else {
-                  return null;
+                  return null
                 }
               })}
             </TableBody>
