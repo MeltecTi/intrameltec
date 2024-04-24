@@ -96,7 +96,7 @@ class KpiReportsController extends Controller
         ]);
     }
 
-    public function destroy($uuid)
+    public function destroy(string $uuid)
     {
         try {
             $kpi = KpiReport::findOrFail($uuid);
