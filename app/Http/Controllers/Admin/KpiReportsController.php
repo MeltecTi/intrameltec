@@ -100,7 +100,10 @@ class KpiReportsController extends Controller
     {
         try {
             $kpi = KpiReport::where('id', $uuid)->first();
-            $kpi->delete();
+
+            $delete= KpiReport::findOrFail($kpi);
+            
+            $delete->delete();
 
             return response()->json(['message' => 'Informe de KPI eliminado correctamente'], 200);
         } catch (Exception $e) {
