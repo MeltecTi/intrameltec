@@ -5,7 +5,7 @@ import { Link, usePage } from '@inertiajs/react'
 import DeleteButton from '../Fragments/DeleteButton2'
 import Paginator from '@/Components/Paginator'
 
-export default function KpisTable (uuid) {
+export default function KpisTable (id) {
   const { auth, reports, reportsData2 } = usePage().props
 
 
@@ -30,15 +30,15 @@ export default function KpisTable (uuid) {
                 const userHasRole = roles.find(role => role.name === auth.userRole[0])
                 if (userHasRole) {
                   return (
-                    <TableRow key={uuid} className='text-center'>
+                    <TableRow key={id} className='text-center'>
                       <TableCell>{name}</TableCell>
                       <TableCell>
                         <p className='text-red-500 font-semibold italic'> LA URL DEL REPORTE NO SE PUEDE ENCONTRAR </p>
                       </TableCell>
                       <TableCell>
-                        <Link className='text-white bg-blue-800 px-5 py-2 rounded-lg mx-1 hover:bg-blue-600 transition ease-out' href={route('kpi.reports.show', uuid)}>Ver</Link>
+                        <Link className='text-white bg-blue-800 px-5 py-2 rounded-lg mx-1 hover:bg-blue-600 transition ease-out' href={route('kpi.reports.show', id)}>Ver</Link>
                         {
-                          <DeleteButton uuid={uuid} />
+                          <DeleteButton id={id} />
                         }
                       </TableCell>
                     </TableRow>
