@@ -27,9 +27,8 @@ export default function DeleteButton () {
   };
 
   return (
-    <Button className='text-white bg-red-800 px-5 py-2 rounded-lg mx-1 hover:bg-red-600 transition ease-out' color='danger' size='sm' onPress={handleDelete}>
+    <Button className='text-white bg-red-800 px-5 py-2 rounded-lg mx-1 hover:bg-red-600 transition ease-out' color='danger' size='sm' onPress={() => handleDelete(uuid)}>
       Borrar
     </Button>
   )
 }
-
