@@ -1,7 +1,7 @@
 import { Button } from '@nextui-org/react';
 import { showAlert, handleSwalError, handleSwalSuccess } from '@/helpers/swalHelper';
 import axios from 'axios';
-import { usePage } from '@inertiajs/inertia-react';
+import { usePage } from '@inertiajs/react';
 
 export default function DeleteButton () {
   const { uuid } = usePage().props;
