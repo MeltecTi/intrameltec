@@ -100,7 +100,7 @@ class KpiReportsController extends Controller
     {
     try {
         // Buscar el recurso por su UUID
-        $resource = KpiReport::where('id', $uuid)->first();
+        $resource = KpiReport::find($uuid);
 
         // Verificar si el recurso existe
         if (!$resource) {
