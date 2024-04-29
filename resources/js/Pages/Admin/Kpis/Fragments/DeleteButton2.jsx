@@ -4,8 +4,8 @@ import axios from 'axios';
 import { usePage } from '@inertiajs/react';
 
 export default function DeleteButton () {
-  const { id } = usePage().props;
-  const handleDelete = async () => {
+  const { uuid } = usePage().props; // Obtiene el UUID de las props usando usePage
+  const handleDelete = async (uuid) => { // No necesitas pasar uuid como argumento aquí
     showAlert({
       title: 'Advertencia',
       icon: 'warning',
@@ -13,7 +13,7 @@ export default function DeleteButton () {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const request = await axios.delete(route('kpi.reports.destroy', id))
+          const request = await axios.delete(route('kpi.reports.destroy', uuid))
           if (request.status !== 200) {
             throw new Error(request.data.message)
           } else {
@@ -32,3 +32,4 @@ export default function DeleteButton () {
     </Button>
   )
 }
+
