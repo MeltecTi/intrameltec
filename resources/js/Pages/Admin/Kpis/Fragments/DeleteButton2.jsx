@@ -4,7 +4,7 @@ import axios from 'axios';
 import { usePage } from '@inertiajs/react';
 
 export default function DeleteButton () {
-  const { uuid } = usePage().props;
+  const { id } = usePage().props;
   const handleDelete = async () => {
     showAlert({
       title: 'Advertencia',
@@ -13,7 +13,7 @@ export default function DeleteButton () {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const request = await axios.delete(route('kpi.reports.destroy', uuid))
+          const request = await axios.delete(route('kpi.reports.destroy', id))
           if (request.status !== 200) {
             throw new Error(request.data.message)
           } else {
