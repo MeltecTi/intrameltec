@@ -37,9 +37,9 @@ export default function KpisTable (id) {
                       </TableCell>
                       <TableCell>
                         <Link className='text-white bg-blue-800 px-5 py-2 rounded-lg mx-1 hover:bg-blue-600 transition ease-out' href={route('kpi.reports.show', id)}>Ver</Link>
-                        {
-                          <DeleteButton id={id} />
-                        }
+                        
+                        <DeleteButton id={id} />
+                        
                       </TableCell>
                     </TableRow>
                   )
