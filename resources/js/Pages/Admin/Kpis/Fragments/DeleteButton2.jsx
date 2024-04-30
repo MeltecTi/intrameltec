@@ -2,8 +2,8 @@ import { Button } from '@nextui-org/react'
 import { showAlert, handleSwalError, handleSwalSuccess } from '@/helpers/swalHelper'
 import axios from 'axios'
 
-export default function DeleteButton ({ uuid }) {
-  const handleDelete = async (uuid) => {
+export default function DeleteButton ({ id }) {
+  const handleDelete = async (id) => {
     showAlert({
       title: 'Advertencia',
       icon: 'warning',
@@ -11,7 +11,7 @@ export default function DeleteButton ({ uuid }) {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const request = await axios.delete(route('kpi.reports.destroy', uuid))
+          const request = await axios.delete(route('kpi.reports.destroy', id))
           if (request.status !== 200) {
             throw new Error(request.data.message)
           } else {
@@ -24,7 +24,7 @@ export default function DeleteButton ({ uuid }) {
     })
   }
   return (
-    <Button className='text-white bg-red-800 px-5 py-2 rounded-lg mx-1 hover:bg-red-600 transition ease-out' color='danger' size='sm' onPress={() => handleDelete(uuid)}>
+    <Button className='text-white bg-red-800 px-5 py-2 rounded-lg mx-1 hover:bg-red-600 transition ease-out' color='danger' size='sm' onPress={() => handleDelete(id)}>
       Borrar
     </Button>
   )
