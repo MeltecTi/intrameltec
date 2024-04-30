@@ -1,12 +1,11 @@
 /* eslint-disable no-undef */
 import { Table, TableColumn, TableHeader, TableBody, TableCell, TableRow } from '@nextui-org/react'
 import { TABLE_KPIS_HEADER } from '@/constants/initialValues'
-import { ROLES_CONSTANTS } from '@/constants/initialValues'
 import { Link, usePage } from '@inertiajs/react'
 import DeleteButton from '../Fragments/DeleteButton2'
 import Paginator from '@/Components/Paginator'
 
-export default function KpisTable ({id, user}) {
+export default function KpisTable (id) {
   const { auth, reports, reportsData2 } = usePage().props
 
 
@@ -27,7 +26,7 @@ export default function KpisTable ({id, user}) {
             )
           : (
             <TableBody>
-              {reportsData2.map(({ id, name, roles, user }) => {
+              {reportsData2.map(({ id, name, roles }) => {
                 const userHasRole = roles.find(role => role.name === auth.userRole[0])
                 if (userHasRole) {
                   return (
@@ -39,10 +38,7 @@ export default function KpisTable ({id, user}) {
                       <TableCell>
                         <Link className='text-white bg-blue-800 px-5 py-2 rounded-lg mx-1 hover:bg-blue-600 transition ease-out' href={route('kpi.reports.show', id)}>Ver</Link>
                         {
-                          user === ROLES_CONSTANTS.Admin
-                           (
-                            <DeleteButton id={id} />
-                            )
+                          <DeleteButton id={id} />
                         }
                       </TableCell>
                     </TableRow>
