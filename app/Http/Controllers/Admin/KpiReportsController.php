@@ -96,10 +96,10 @@ class KpiReportsController extends Controller
         ]);
     }
 
-    public function destroy(KpiReport $uuid)
+    public function destroy(KpiReport $id)
     {
     try {
-        $uuid->delete();
+        $id->delete();
 
         return response()->json(['message' => 'Informe de KPI eliminado correctamente'], 200);
         } catch (Exception $e) {
