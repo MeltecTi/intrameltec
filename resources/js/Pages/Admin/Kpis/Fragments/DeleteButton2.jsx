@@ -1,6 +1,7 @@
 import { Button } from '@nextui-org/react'
 import { showAlert, handleSwalError, handleSwalSuccess } from '@/helpers/swalHelper'
 import axios from 'axios'
+import { route } from 'laravel-mix';
 
 export default function DeleteButton ({ id }) {
   const handleDelete = async () => {
