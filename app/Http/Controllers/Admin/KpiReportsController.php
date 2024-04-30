@@ -99,8 +99,6 @@ class KpiReportsController extends Controller
     public function destroy(KpiReport $uuid)
     {
     try {
-
-        RoleHasKpi::where('UUID_kpi', $uuid->id)->delete();
         $uuid->delete();
 
         return response()->json(['message' => 'Informe de KPI eliminado correctamente'], 200);

@@ -19,7 +19,7 @@ class KpiReport extends Model
 
     public function roles() : BelongsToMany
     {
-        return $this->belongsToMany(Role::class, 'role_has_kpis', 'UUID_kpi', 'role_id');
+        return $this->belongsToMany(Role::class, 'role_has_kpis', 'UUID_kpi', 'role_id')->onDelete('cascade');
     }
 
     public function category() :BelongsTo
