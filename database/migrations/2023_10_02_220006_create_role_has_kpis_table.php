@@ -15,7 +15,7 @@ return new class extends Migration
             $table->uuid('UUID_kpi');
             $table->unsignedBigInteger('role_id');
             $table->foreign('role_id')->references('id')->on('roles');
-            $table->foreign('UUID_kpi')->references('id')->on('kpi_reports');
+            $table->foreign('UUID_kpi')->references('id')->on('kpi_reports')->onDelete('cascade');
         });
     }
 
