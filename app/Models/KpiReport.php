@@ -26,4 +26,13 @@ class KpiReport extends Model
     {
         return $this->belongsTo(KpiCategory::class);
     }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($kpiReport) {
+        $kpiReport->roles()->detach();
+        });
+    }
 }
