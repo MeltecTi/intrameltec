@@ -37,7 +37,9 @@ export default function KpisTable (id) {
                       </TableCell>
                       <TableCell>
                         <Link className='text-white bg-blue-800 px-5 py-2 rounded-lg mx-1 hover:bg-blue-600 transition ease-out' href={route('kpi.reports.show', id)}>Ver</Link>
-                        <a href="{{ route('kpi.reports.destroy', $id) }}" onclick="return confirm('¿Estás seguro de que deseas eliminar este elemento?')" className='text-white bg-red-800 px-5 py-2 rounded-lg mx-1 hover:bg-red-600 transition ease-out' color='danger' size='sm'>Eliminar</a>
+                        {
+                          <DeleteButton id={id} />
+                        }
                       </TableCell>
                     </TableRow>
                   )
