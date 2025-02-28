@@ -1,0 +1,1 @@
+import{j as e,d as i}from"./app-1e18f165.js";function o({subroutes:r}){return e.jsx("div",{className:"flex justify-start p-4 bg-white rounded-md",children:r.map(({name:t,route:s},d)=>e.jsx(i,{href:s,className:"py-2 px-4 mx-2 border-none rounded transition-all hover:bg-indigo-800 hover:text-white",children:t},d))})}export{o as S};

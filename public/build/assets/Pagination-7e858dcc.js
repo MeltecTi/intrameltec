@@ -1,0 +1,1 @@
+import{j as r}from"./app-1e18f165.js";const o=({productsPage:e,totalProducts:n,paginate:t})=>{const s=[];for(let i=1;i<=Math.ceil(n/e);i++)s.push(i);return r.jsx("nav",{children:r.jsx("ul",{children:s.map(i=>r.jsx("li",{children:r.jsx("a",{href:"!#",onClick:()=>t(i),children:i})},i))})})};export{o as Pagination};

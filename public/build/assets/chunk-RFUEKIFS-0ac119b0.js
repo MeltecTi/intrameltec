@@ -1,0 +1,1 @@
+var e={};function s(t,r,...a){var o;const n=`[Next UI]${r?` [${r}]`:" "}: ${t}`;if(!(typeof console>"u")&&!e[n]&&(e[n]=!0,((o=process==null?void 0:process.env)==null?void 0:o.NODE_ENV)!=="production"))return console.warn(n,a)}export{s as w};

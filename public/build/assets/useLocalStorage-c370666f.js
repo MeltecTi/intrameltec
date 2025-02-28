@@ -1,0 +1,1 @@
+import{r as c}from"./app-1e18f165.js";function u(t,e){const[o,s]=c.useState(()=>{try{const r=window.localStorage.getItem(t);return r?JSON.parse(r):e}catch(r){console.error(r)}});return[o,r=>{try{s(r),window.localStorage.setItem(t,JSON.stringify(r))}catch(a){console.error(a)}}]}export{u};

@@ -1,0 +1,1 @@
+import{i as l}from"./focusSafely-0d0e41b4.js";import{r as d}from"./app-1e18f165.js";function f(r,i,a){let n=d.useRef(i),t=l(()=>{a&&a(n.current)});d.useEffect(()=>{var o;let e=r==null||(o=r.current)===null||o===void 0?void 0:o.form;return e==null||e.addEventListener("reset",t),()=>{e==null||e.removeEventListener("reset",t)}},[r,t])}export{f as $};
