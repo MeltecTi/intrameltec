@@ -41,7 +41,9 @@ Route::middleware('guest')->group(function () {
     })->name('auth.redirectGoogle');
 
     Route::get('/auth-callback', [GoogleAuthenticationController::class, 'AuthCallback']);
-});
+
+    Route::get('/auth/callback', [GoogleAuthenticationController::class, 'AuthCallback']);
+    });
 
 Route::middleware('auth')->group(function () {
     Route::get('verify-email', EmailVerificationPromptController::class)
