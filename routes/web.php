@@ -164,9 +164,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/commercial/zebra/porparte/{parteBuscar}', [CotizadorZebraController::class, 'porParte'])->name('zebra.filter.porparte');
     Route::post('/commercial/zebra/price', [CotizadorZebraController::class, 'PrecioLista'])->name('zebra.listprice');
     Route::post('/commercial/zebra/finalprice', [CotizadorZebraController::class, 'FinalPrice'])->name('zebra.finalprice');
-    Route::post('/commercial/zebra/imagenpart', [CotizadorZebraController::class, 'ImagenPart'])->name('zebra.imagenpart');
+    Route::post('/commercial/zebra/imagenpart', [CotizadorZebraController::class, 'DescPart'])->name('zebra.imagenpart');
     Route::post('/commercial/zebra/datospartes', [CotizadorZebraController::class, 'datosPartes'])->name('zebra.datospartes');
-
     Route::get('/commercial/precios-ulefone', [PreciosUlefoneController::class, 'index'])->name('ulefone.index');
     Route::get('/commercial/ulefone/odata', [PreciosUlefoneController::class, 'Odata']);
     Route::get('/commercial/ulefone/datosmodelo/{Datomodelo}', [PreciosUlefoneController::class, 'DatosModelo'])->name('ulefone.datos.modelo');
