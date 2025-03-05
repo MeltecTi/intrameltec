@@ -1,5 +1,20 @@
 /* eslint-disable no-undef */
-import { HomeIcon, DatacenterIcon, ToolIcon, SellerIcon, HumanIcon, AccountingIcon, ReportIcond, ArticulosReflex, RepoEmpresarial, UlefonIcon, ZebraIcon} from '@/Components/icons/Icons'
+import { 
+  HomeIcon, 
+  DatacenterIcon, 
+  ToolIcon, 
+  SellerIcon, 
+  HumanIcon, 
+  AccountingIcon, 
+  ReportIcond, 
+  ArticulosReflex, 
+  RepoEmpresarial, 
+  UlefonIcon, 
+  ZebraIcon, 
+  Logistica,
+  DirectorAudi,
+  Auditoria,
+} from '@/Components/icons/Icons'
 import Sidebar, { SidebarItem } from './partials/Sidebar'
 import DevMessage from './partials/DevMessage'
 import TopBar from './partials/TopBar'
@@ -24,6 +39,9 @@ export default function Authenticated({ auth, header, children, unreadNotificati
         <SidebarItem icon={<HomeIcon size='32px' color='#395181' />} href={route('dashboard')} text='Inicio' />
 
         <SidebarItem icon={<RepoEmpresarial size='32px' color='#395181' />} href={route('index.empresarial')} text='Repositorio Empresarial' />
+        {['Almacen', 'Director', 'Administrador'].includes(user.roles[0].name) ? (
+          <SidebarItem icon={<Logistica size='32px' color='#395181' />} href={route('informe.seguimiento')} text='Logistica' />
+        ) : ''}
         {
           user.roles[0].name === 'Administrador' ? (<SidebarItem icon={<DatacenterIcon size='32px' color='#395181' />} href={route('admin.parts.index')} text='Datacenter Meltec IT' />) : ''
         }
@@ -58,7 +76,7 @@ export default function Authenticated({ auth, header, children, unreadNotificati
               />
               <SidebarItem
                 icon={<ZebraIcon size="32px" color="#395181" />}
-                href={route("zebra.index")}
+                href={route("zebra.index")} 
                 text="Cotizador Web Zebra"
               />
             </div>
@@ -69,11 +87,11 @@ export default function Authenticated({ auth, header, children, unreadNotificati
 
 
         {['Auditoria Almacen', 'Auditoria Contabilidad', 'Auditoria HSEQ', 'Administrador'].includes(user.roles[0].name) ? (
-          <SidebarItem icon={<ToolIcon size='32px' color='#395181' />} href={route('auditoria')} text='Auditoria' />
+          <SidebarItem icon={<Auditoria size='32px' color='#395181' />} href={route('auditoria')} text='Auditoria' />
         ) : ''}
 
         {['Director Auditoria', 'Administrador'].includes(user.roles[0].name) ? (
-          <SidebarItem icon={<ToolIcon size='32px' color='#395181' />} href={route('resources.director.index')} text='Director Auditoria' />
+          <SidebarItem icon={<DirectorAudi size='32px' color='#395181' />} href={route('resources.director.index')} text='Director Auditoria' />
         ) : ''}
 
         {/* <SidebarItem icon={<HumanIcon size='32px' color='#395181' />} href={route('resources.hseq.index')} text='Area HSEQ' /> */}
