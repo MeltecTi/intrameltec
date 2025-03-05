@@ -64,7 +64,7 @@ export default function Authenticated({ auth, header, children, unreadNotificati
           </div>
         )}
 
-        <SidebarItem icon={<ArticulosReflex size='32px' color='#395181' />} href={route('resources.modulo.articulos')} text='Inicio' />
+        <SidebarItem icon={<ArticulosReflex size='32px' color='#395181' />} href={route('resources.modulo.articulos')} text='Articulos' />
 
 
         {['Auditoria Almacen', 'Auditoria Contabilidad', 'Auditoria HSEQ', 'Administrador'].includes(user.roles[0].name) ? (
