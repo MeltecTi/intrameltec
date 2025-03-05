@@ -96,9 +96,6 @@ export default function Authenticated({ auth, header, children, unreadNotificati
         {openMenus["kpis"] && (
           <div className="[grid-area:aside] max-w-xs">
             <NavKpis category={1} />
-            <NavKpis category={2} />
-            <NavKpis category={3} />
-            <NavKpis category={4} />
             <div
               className="flex items-center pl-12 py-2 cursor-pointer rounded-md"
               onClick={() =>
@@ -107,18 +104,7 @@ export default function Authenticated({ auth, header, children, unreadNotificati
                   "_blank"
                 )
               }
-            >
-              <li className="relative flex items-center py-2 my-1 font-medium rounded-md cursor-pointer transition-colors group hover:bg-indigo-50 text-gray-600 ml-[-0.5]">
-                <a className="inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium leading-5 transition duration-150 ease-in-out focus:outline-none border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:text-gray-700 focus:border-gray-300 w-full flex items-center space-x-2 py-2 px-2 border-none">
-                  <ReportIcond
-                    size="32px"
-                    color="#395181"
-                  />
-                  <span className="overflow-hidden transition-all w-32 ml-3 text-sm font-medium px-5 self-center text-gray-500 hover:text-gray-700">
-                    Estado Cargue KPI's
-                  </span>
-                </a>
-              </li>
+            >           
             </div>
           </div>
         )}
