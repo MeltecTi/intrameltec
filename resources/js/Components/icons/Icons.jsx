@@ -464,7 +464,7 @@ export function DirectorAudi({ size, color, ...props }) {
       preserveAspectRatio="xMidYMid meet">
 
       <g transform="translate(0.000000,980.000000) scale(0.100000,-0.100000)"
-        fill="#000000" stroke="none">
+        fill={color} stroke="none">
         <path d="M3465 9794 c-224 -46 -343 -104 -477 -232 -140 -134 -218 -281 -258
 -487 -11 -60 -24 -113 -28 -117 -4 -4 -207 -8 -452 -10 -443 -3 -445 -3 -505
 -27 -39 -16 -77 -42 -111 -76 -79 -79 -95 -139 -102 -377 l-4 -186 -622 -4
@@ -520,7 +520,7 @@ export function Auditoria({ size, color, ...props }) {
       preserveAspectRatio="xMidYMid meet">
 
       <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
-        fill="#000000" stroke="none">
+        fill={color} stroke="none">
         <path d="M2005 5105 c-38 -9 -112 -36 -164 -62 -77 -37 -110 -61 -176 -127
 -45 -44 -95 -105 -111 -133 l-29 -53 -85 0 c-173 -1 -286 -30 -376 -98 l-51
 -39 -144 -6 c-189 -7 -287 -36 -419 -121 -161 -105 -273 -263 -326 -461 -18
