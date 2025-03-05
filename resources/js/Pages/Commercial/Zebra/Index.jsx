@@ -69,7 +69,7 @@ export default function Index({ auth, unreadNotifications, data, partNumData,  M
             setPartNums(response.data.partNums); // Establecer todos los números de parte
         } catch (error) {
             console.error("Error al obtener números de parte:", error);
-        }
+        }4
     };
 
     const handlePartNumSelect = async (selectedPart) => {
@@ -100,7 +100,7 @@ export default function Index({ auth, unreadNotifications, data, partNumData,  M
             const [listPriceResponse, finalPriceResponse, DescPartResponse, datosPartesResponse] = await Promise.all([
                 axios.post(route("zebra.listprice"), { selectedParts: updatedSelectedParts }),
                 axios.post(route("zebra.finalprice"), { selectedParts: updatedSelectedParts }),
-                axios.post(route("zebra.desc"), { selectedParts: updatedSelectedParts }),
+                axios.post(route("zebra.imagenpart"), { selectedParts: updatedSelectedParts }),
                 axios.post(route("zebra.datospartes"), { selectedParts: updatedSelectedParts }),
             ]);
 
