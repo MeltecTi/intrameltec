@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import { HomeIcon, DatacenterIcon, ToolIcon, SellerIcon, HumanIcon, AccountingIcon, ReportIcond, ArticulosReflex, RepoEmpresarial} from '@/Components/icons/Icons'
+import { HomeIcon, DatacenterIcon, ToolIcon, SellerIcon, HumanIcon, AccountingIcon, ReportIcond, ArticulosReflex, RepoEmpresarial, UlefonIcon, ZebraIcon} from '@/Components/icons/Icons'
 import Sidebar, { SidebarItem } from './partials/Sidebar'
 import DevMessage from './partials/DevMessage'
 import TopBar from './partials/TopBar'
@@ -52,12 +52,12 @@ export default function Authenticated({ auth, header, children, unreadNotificati
           <div className="[grid-area:aside] max-w-xs">
             <div className="flex flex-col items-center justify-center space-y-4">
               <SidebarItem
-                icon={<SellerIcon size="32px" color="#395181" />}
+                icon={<UlefonIcon size="32px" color="#395181" />}
                 href={route("ulefone.index")}
                 text="Cotizador Web Ulefone"
               />
               <SidebarItem
-                icon={<SellerIcon size="32px" color="#395181" />}
+                icon={<ZebraIcon size="32px" color="#395181" />}
                 href={route("zebra.index")}
                 text="Cotizador Web Zebra"
               />
