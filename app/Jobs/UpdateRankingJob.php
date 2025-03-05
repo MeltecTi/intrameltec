@@ -41,7 +41,7 @@ class UpdateRankingJob implements ShouldQueue
 
             $fecha = date('Y-m-d\T00:00:00'); 
 
-            $url = $CREDENTIALS['url'] . 'sap/byd/odata/ana_businessanalytics_analytics.svc/RPCRMCIVIB_MQ0001QueryResults?$select=TIP_SAL_EMP,CDOC_INV_DATE,KCNT_REVENUE&$top=99999&$format=json';          
+            $url = $CREDENTIALS['url'] . 'sap/byd/odata/ana_businessanalytics_analytics.svc/RPCRMCIVIB_MQ0001QueryResults?$select=TIP_SAL_EMP,CDOC_INV_DATE,KCNT_REVENUE&$top=99999&$format=json&$filter=(CDOC_INV_DATE%20ge%20datetime%27' . $fecha . '%27)';          
 
             $ch = curl_init($url);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
