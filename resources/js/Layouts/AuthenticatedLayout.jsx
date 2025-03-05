@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import { HomeIcon, DatacenterIcon, ToolIcon, SellerIcon, HumanIcon, AccountingIcon, ReportIcond, ArticulosReflex } from '@/Components/icons/Icons'
+import { HomeIcon, DatacenterIcon, ToolIcon, SellerIcon, HumanIcon, AccountingIcon, ReportIcond, ArticulosReflex, RepoEmpresarial} from '@/Components/icons/Icons'
 import Sidebar, { SidebarItem } from './partials/Sidebar'
 import DevMessage from './partials/DevMessage'
 import TopBar from './partials/TopBar'
@@ -23,6 +23,7 @@ export default function Authenticated({ auth, header, children, unreadNotificati
       <Sidebar user={user} className='[grid-area:aside] max-w-xs'>
         <SidebarItem icon={<HomeIcon size='32px' color='#395181' />} href={route('dashboard')} text='Inicio' />
 
+        <SidebarItem icon={<RepoEmpresarial size='32px' color='#395181' />} href={route('index.empresarial')} text='Repositorio Empresarial' />
         {
           user.roles[0].name === 'Administrador' ? (<SidebarItem icon={<DatacenterIcon size='32px' color='#395181' />} href={route('admin.parts.index')} text='Datacenter Meltec IT' />) : ''
         }
