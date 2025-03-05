@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import { HomeIcon, DatacenterIcon, ToolIcon, SellerIcon, HumanIcon, AccountingIcon, ReportIcond } from '@/Components/icons/Icons'
+import { HomeIcon, DatacenterIcon, ToolIcon, SellerIcon, HumanIcon, AccountingIcon, ReportIcond, ArticulosReflex } from '@/Components/icons/Icons'
 import Sidebar, { SidebarItem } from './partials/Sidebar'
 import DevMessage from './partials/DevMessage'
 import TopBar from './partials/TopBar'
@@ -63,6 +63,9 @@ export default function Authenticated({ auth, header, children, unreadNotificati
             </div>
           </div>
         )}
+
+        <SidebarItem icon={<ArticulosReflex size='32px' color='#395181' />} href={route('resources.modulo.articulos')} text='Inicio' />
+
 
         {['Auditoria Almacen', 'Auditoria Contabilidad', 'Auditoria HSEQ', 'Administrador'].includes(user.roles[0].name) ? (
           <SidebarItem icon={<ToolIcon size='32px' color='#395181' />} href={route('auditoria')} text='Auditoria' />
