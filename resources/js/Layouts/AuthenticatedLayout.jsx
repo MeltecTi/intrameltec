@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import { HomeIcon, DatacenterIcon, ToolIcon, SellerIcon, HumanIcon, AccountingIcon, ReportIcon} from '@/Components/icons/Icons'
+import { HomeIcon, DatacenterIcon, ToolIcon, SellerIcon, HumanIcon, AccountingIcon, ReportIcond} from '@/Components/icons/Icons'
 import Sidebar, { SidebarItem } from './partials/Sidebar'
 import DevMessage from './partials/DevMessage'
 import TopBar from './partials/TopBar'
@@ -82,7 +82,7 @@ export default function Authenticated({ auth, header, children, unreadNotificati
           className="flex items-center pl-5 py-2 cursor-pointer rounded-md hover:bg-gray-200 "
           onClick={() => toggleKpiMenu("kpis")}
         >
-          <ReportIcon size="32px" color="#395181" />
+          <ReportIcond size="32px" color="#395181" />
           <span className="ml-3 px-5 text-gray-500 font-medium rounded-md"> Kpi's</span>
           <span className=" ml-2">
             {openMenus["kpis"] ? (
@@ -109,7 +109,7 @@ export default function Authenticated({ auth, header, children, unreadNotificati
             >
               <li className="relative flex items-center py-2 my-1 font-medium rounded-md cursor-pointer transition-colors group hover:bg-indigo-50 text-gray-600 ml-[-0.5]">
                 <a className="inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium leading-5 transition duration-150 ease-in-out focus:outline-none border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:text-gray-700 focus:border-gray-300 w-full flex items-center space-x-2 py-2 px-2 border-none">
-                  <ReportIcon
+                  <ReportIcond
                     size="32px"
                     color="#395181"
                   />
