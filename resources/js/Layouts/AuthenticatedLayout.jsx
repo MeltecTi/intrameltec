@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import { HomeIcon, DatacenterIcon, ToolIcon, SellerIcon, HumanIcon, AccountingIcon } from '@/Components/icons/Icons'
+import { HomeIcon, DatacenterIcon, ToolIcon, SellerIcon, HumanIcon, AccountingIcon, ReportIcon} from '@/Components/icons/Icons'
 import Sidebar, { SidebarItem } from './partials/Sidebar'
 import DevMessage from './partials/DevMessage'
 import TopBar from './partials/TopBar'
