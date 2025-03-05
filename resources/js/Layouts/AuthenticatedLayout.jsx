@@ -53,7 +53,6 @@ export default function Authenticated({ auth, header, children, unreadNotificati
 
         {openMenus["comercial"] && (
           <div className="[grid-area:aside] max-w-xs">
-            <NavKpis category={1} />
             <div className="flex flex-col items-center justify-center space-y-4">
               <SidebarItem
                 icon={<SellerIcon size="32px" color="#395181" />}
@@ -68,6 +67,7 @@ export default function Authenticated({ auth, header, children, unreadNotificati
             </div>
           </div>
         )}
+        
         {/* <SidebarItem icon={<HumanIcon size='32px' color='#395181' />} href={route('resources.hseq.index')} text='Area HSEQ' /> */}
         <SidebarItem icon={<AccountingIcon size='32px' color='#395181' />} href={route('payments.index')} text='Area Contable' />
         {
@@ -95,6 +95,7 @@ export default function Authenticated({ auth, header, children, unreadNotificati
 
         {openMenus["kpis"] && (
           <div className="[grid-area:aside] max-w-xs">
+            <NavKpis category={1} />
             <NavKpis category={2} />
             <NavKpis category={3} />
             <NavKpis category={4} />
@@ -121,8 +122,6 @@ export default function Authenticated({ auth, header, children, unreadNotificati
             </div>
           </div>
         )}
-
-        <NavKpis />
 
       </Sidebar>
 
