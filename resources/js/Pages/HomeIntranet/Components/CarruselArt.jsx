@@ -45,7 +45,12 @@ export default function CarruselArt({ refreshAccessToken }) {
         }
 
         try {
-            const response = await axios.get("https://internal.meltec.com.co/articulos-archivos", {
+            const instance = axios.create({
+                httpsAgent: new https.Agent({
+                    rejectUnauthorized: false,
+                }),
+            });
+            const response = await instance.get("https://internal.meltec.com.co/articulos-archivos", {
                 headers: {
                     "Content-Type": "multipart/form-data",
                     Authorization: `Bearer ${token}`,
@@ -130,7 +135,7 @@ export default function CarruselArt({ refreshAccessToken }) {
                                     key={i}
                                     href={file.webViewLink}
                                     className="flex flex-col items-center bg-gradient-to-b from-[#395181] via-[#446099] to-[#5072b6] p-4 rounded-xl shadow-lg transition-transform hover:scale-105 w-full sm:w-auto ml-2"
-                                    target="_blank" 
+                                    target="_blank"
                                     rel="noopener noreferrer"
                                 >
                                     <img src={file.thumbnailLink} className="h-[250px] w-[250px] object-cover rounded-lg" />
