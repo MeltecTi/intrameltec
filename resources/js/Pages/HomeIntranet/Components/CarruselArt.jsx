@@ -45,11 +45,6 @@ export default function CarruselArt({ refreshAccessToken }) {
         }
 
         try {
-            const instance = axios.create({
-                httpsAgent: new https.Agent({
-                    rejectUnauthorized: false,
-                }),
-            });
             const response = await instance.get("https://internal.meltec.com.co/articulos-archivos", {
                 headers: {
                     "Content-Type": "multipart/form-data",

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import CarruselArt from "../Components/CarruselArt";
 import { Divider } from '@heroui/react'
-
+ 
 export default function CarrouselArticulos({ usertoken }) {
 
     const [accessToken, setAccessToken] = useState(null);
@@ -22,12 +22,6 @@ export default function CarrouselArticulos({ usertoken }) {
         }
 
         try {
-
-            const instance = axios.create({
-                httpsAgent: new https.Agent({
-                    rejectUnauthorized: false,
-                }),
-            });
 
             const response = await instance.post("https://internal.meltec.com.co/refresh-token", {
                 refresh_token: refreshToken,
