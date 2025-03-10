@@ -43,7 +43,7 @@ export default function SidebarMeta ({ kpi, totalRevenue}) {
             borderColor: '#395181', // Cambiar el borde del thumb
           }
         }} label={[CurrentValueText, " || " , " Meta propuesta: " ,  new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(TargetValue)]} formatOptions={{ style: 'currency', currency: 'COP', minimumFractionDigits: 0 }} />
-      <h3 className='p-6 text-right'>Faltan: <span className='font-semibold text-red-600'> {priceFormatted({ price: Math.abs(Resultadofinal), currency: 'COP', fractionDigits: 0 })} </span> Para llegar a la meta del año {new Date().getFullYear()}</h3>
+      <h3 className='p-6 text-right'>Faltan: <span className='font-semibold text-red-600'> {priceFormatted({ price: Math.abs(Resultadofinal), currency: 'COP', fractionDigits: 0 })} </span> Para llegar a la meta del ano {new Date().getFullYear()}</h3>
     </>
   )
 }

@@ -70,6 +70,8 @@ export default function Dashboard({ auth, unreadNotifications, OdataMeta, OdataR
 
   useEffect(() => {
 
+    
+
     axios
       .get("/user", { withCredentials: true })
       .then((res) => {
