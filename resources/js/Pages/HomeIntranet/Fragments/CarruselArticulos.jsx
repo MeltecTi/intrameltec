@@ -13,6 +13,20 @@ export default function CarrouselArticulos({ usertoken }) {
         let token;
         const tokenExpiry = 3599;
 
+        if (!token || (tokenExpiry && Date.now() > parseInt(tokenExpiry, 10))) {
+            try {
+                await refreshAccessToken();
+                token = localStorage.getItem("access_token");
+                if (!token) {
+                    alert("No se pudo obtener un token válido.");
+                    return;
+                }
+            } catch (error) {
+                alert("Error al renovar el token: " + error.message);
+                return;
+            }
+        }
+
         if (!refreshToken && usertoken) {
             refreshToken = usertoken;
         }
@@ -26,6 +40,10 @@ export default function CarrouselArticulos({ usertoken }) {
         try {
 
             const response = await axios.post("https://internal.meltec.com.co/refresh-token", {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                    Authorization: `Bearer ${token}`,
+                },
                 refresh_token: refreshToken,
             });
 
