@@ -9,7 +9,9 @@ export default function CarrouselArticulos({ usertoken }) {
 
     // Función para refrescar el token
     const refreshAccessToken = async () => {
-        let refreshToken = localStorage.getItem("refresh_token");
+        const refreshToken = localStorage.getItem("refresh_token");
+        let token;
+        const tokenExpiry = 3599;
 
         if (!refreshToken && usertoken) {
             refreshToken = usertoken;
