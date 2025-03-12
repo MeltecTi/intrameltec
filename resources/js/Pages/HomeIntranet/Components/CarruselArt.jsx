@@ -45,7 +45,7 @@ export default function CarruselArt({ refreshAccessToken }) {
         }
 
         try {
-            const response = await instance.get("https://internal.meltec.com.co/articulos-archivos", {
+            const response = await axios.get("https://internal.meltec.com.co/articulos-archivos", {
                 headers: {
                     "Content-Type": "multipart/form-data",
                     Authorization: `Bearer ${token}`,
