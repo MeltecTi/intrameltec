@@ -23,7 +23,7 @@ export default function CarrouselArticulos({ usertoken }) {
 
         try {
 
-            const response = await instance.post("https://internal.meltec.com.co/refresh-token", {
+            const response = await axios.post("https://internal.meltec.com.co/refresh-token", {
                 refresh_token: refreshToken,
             });
 
