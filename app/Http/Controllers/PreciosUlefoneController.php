@@ -13,8 +13,8 @@ class PreciosUlefoneController extends Controller
     protected function conn(){
 
         $dsn = 'YourDSNName';  
-        $username = 'intranet';
-        $password = 'Meltec2025*';
+        $username = 'proyectobi3';
+        $password = 'Julio2019**';
 
 
         $conn = odbc_connect($dsn, $username, $password);
@@ -155,8 +155,8 @@ class PreciosUlefoneController extends Controller
         // Agregar un tiempo de espera para la conexión
         $conn = odbc_connect(
             "Driver={ODBC Driver 17 for SQL Server};Server=10.14.15.35;Database=COTIZADOR;Connection Timeout=30;", 
-            'intranet', 
-            'Meltec2025*'
+            'proyectobi3', 
+            'Julio2019**'
         );
 
         if ($conn) {
