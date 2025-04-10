@@ -14,7 +14,7 @@ const AprendizajeLayout = ({ children }) => {
 
         const getProfileInfo = async () => {
             try {
-                const response = await axios.get(`/moodle/user/${userid}`, {
+                const response = await axios.get(`/moodle_ws/user/${userid}`, {
                     withCredentials: true
                 })
                 setUserMoodle(response.data[0])
