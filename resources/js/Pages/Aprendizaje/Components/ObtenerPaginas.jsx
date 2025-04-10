@@ -19,7 +19,7 @@ export default function ObtenerPaginas({ auth, unreadNotifications }) {
         const getPageContent = async () => {
             try {
                 const response = await axios.get(
-                    `/moodle/cursos/contenido/${courseid}`,
+                    `/moodle_ws/cursos/contenido/${courseid}`,
                     {
                         withCredentials: true
                     }
