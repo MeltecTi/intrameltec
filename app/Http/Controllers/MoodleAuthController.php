@@ -56,7 +56,7 @@ class MoodleAuthController extends Controller
             'query' => [
                 'username' => $request->username,
                 'password' => $request->password,
-                'service'  => 'pruebas'
+                'service'  => 'moodle_ws'
             ],
             'cookies' => $cookieJar,
         ]);
@@ -173,7 +173,7 @@ class MoodleAuthController extends Controller
                     'query'=> [
                         'username' => $request->username,
                         'password' => $request->password,
-                        'service' => 'pruebas' // El servicio debe estar habilitado en Moodle
+                        'service' => 'moodle_ws' // El servicio debe estar habilitado en Moodle
                     ]
                 ]);
         
