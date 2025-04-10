@@ -39,15 +39,15 @@ export default function ObtenerPaginas({ auth, unreadNotifications }) {
 
     useEffect(() => {
 
-        if (pageContent?.content) {
+       if (pageContent?.content) {
             const updatedContent = pageContent.content.replace(
-                /(<img[^>]+src=["'])(http:\/\/127.0.0.1\/moodle\/webservice\/pluginfile\.php[^"']+)/g,
-                `$1$2?token=${token}`
-            );
+            /(<img[^>]+src=["'])(https:\/\/internal\.meltec\.com\.co\/public\/moodle\/webservice\/pluginfile\.php[^"']+)/g,
+            `$1$2?token=${token}`
+        );
             const updatedIntro = pageContent.intro.replace(
-                /(<img[^>]+src=["'])(http:\/\/127.0.0.1\/moodle\/webservice\/pluginfile\.php[^"']+)/g,
-                `$1$2?token=${token}`
-            );
+            /(<img[^>]+src=["'])(https:\/\/internal\.meltec\.com\.co\/public\/moodle\/webservice\/pluginfile\.php[^"']+)/g,
+            `$1$2?token=${token}`
+        );
             console.log("Contenido modificado:", updatedContent);
             setContentWithToken(updatedContent);
             setIntroWithToken(updatedIntro)
