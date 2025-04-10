@@ -11,8 +11,8 @@ use Illuminate\Support\Facades\Session;
 
 class MoodleAuthController extends Controller
 {
-    private const token="2feba25cea894598a3b5012b2be360c3";
-    private const moodleUrl='http://127.0.0.1/moodle/webservice/rest/server.php';
+    private const token="token de prueba";
+    private const moodleUrl='https://internal.meltec.com.co/public/moodle/webservice/rest/server.php';
 
     public function login(Request $request)
     {
@@ -21,7 +21,7 @@ class MoodleAuthController extends Controller
             'password' => 'required',
         ]);
 
-        $moodleUrl= "http://127.0.0.1/moodle";
+        $moodleUrl= "https://internal.meltec.com.co/public/moodle";
         $client= new Client();
         $cookieJar = new CookieJar(); 
         
@@ -106,9 +106,9 @@ class MoodleAuthController extends Controller
                     $moodleSession['Value'],
                     0,
                     '/',
-                    '127.0.0.1',
-                    false, // Secure=false en local, debe ser true en producción con HTTPS
-                    false, // HttpOnly=true para mayor seguridad
+                    'internal.meltec.com.co',
+                    true, 
+                    true, // HttpOnly=true para mayor seguridad
                     'None'
                 ));
             }
@@ -119,10 +119,10 @@ class MoodleAuthController extends Controller
                     $moodleID['Value'],
                     0,
                     '/',
-                    '127.0.0.1',
+                    'internal.meltec.com.co',
                     true, 
-                    false,
-                    false, 
+                    true,
+                    true, 
                     'None'
                 ));
             }
@@ -169,7 +169,7 @@ class MoodleAuthController extends Controller
 
             if (isset($userData[0]['id'])) {
                 // Obtener token del nuevo usuario
-                $tokenResponse =$client->request('GET',"http://127.0.0.1/moodle/login/token.php",[
+                $tokenResponse =$client->request('GET',"https://internal.meltec.com.co/public/moodle/login/token.php",[
                     'query'=> [
                         'username' => $request->username,
                         'password' => $request->password,
