@@ -34,8 +34,8 @@ class UpdateRankingJob implements ShouldQueue
             $CREDENTIALS = [
                 'url' => 'https://my345513.sapbydesign.com/',
                 'auth' => [
-                    'username' => 'SEIDORFUNCIONAL',
-                    'password' => 'S31d0r*2o24_',
+                    'username' => 'MSRODRIGUEZ',
+                    'password' => '9PrnQJ@74j3Kauz*',
                 ]
             ]; 
 
