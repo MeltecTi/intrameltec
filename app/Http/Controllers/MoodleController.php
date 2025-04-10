@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Session;
 class MoodleController extends Controller
 {
 
-    private const moodleUrl='http://127.0.0.1/moodle/webservice/rest/server.php';
+    private const moodleUrl='https://internal.meltec.com.co/public/moodle/webservice/rest/server.php';
     private $token;
 
     public function __construct()
@@ -175,130 +175,6 @@ class MoodleController extends Controller
             // Retornar los datos como JSON
             return response()->json($courses);
 
-        } catch (\Exception $e) {
-            // Manejo de errores
-            return response()->json(['error' => 'No se pudieron obtener los cursos', 'message' => $e->getMessage()], 500);
-        }
-    }
-
-    //QUIZ SECTION
-
-    public function getQuizInfo($courseid)
-    {
-
-        $function = "mod_quiz_get_quizzes_by_courses";
-        
-
-        $client = new Client();
-
-        try {
-            // Hacer la petición a Moodle
-            $response = $client->request('GET', self::moodleUrl, [
-                'query' => [
-                    'wstoken' => $this->token,
-                    'wsfunction' => $function,
-                    'moodlewsrestformat' => 'json',
-                    'courseids[0]' => $courseid
-                ]
-            ]);
-
-            $body = $response->getBody();
-            $quizzes = json_decode($body, true);
-
-            // Retornar los datos como JSON
-            return response()->json($quizzes);
-
-        } catch (\Exception $e) {
-            // Manejo de errores
-            return response()->json(['error' => 'No se pudieron obtener los cursos', 'message' => $e->getMessage()], 500);
-        }
-    }
-
-    public function startQuizAttempt($quizid)
-    {
-        $function = "mod_quiz_start_attempt";
-        
-
-        $client = new Client();
-
-        try {
-            // Hacer la petición a Moodle
-            $response = $client->request('GET', self::moodleUrl, [
-                'query' => [
-                    'wstoken' => $this->token,
-                    'wsfunction' => $function,
-                    'moodlewsrestformat' => 'json',
-                    'quizid' => $quizid
-                ]
-            ]);
-
-            $body = $response->getBody();
-            $content = json_decode($body, true);
-
-            // Retornar los datos como JSON
-            return response()->json($content);
-
-        } catch (\Exception $e) {
-            // Manejo de errores
-            return response()->json(['error' => 'No se pudieron obtener los cursos', 'message' => $e->getMessage()], 500);
-        }
-    }
-
-    public function getQuizContent ($attemptid)
-    {
-        $function = "mod_quiz_get_attempt_data";
-        
-
-        $client = new Client();
-
-        try {
-            // Hacer la petición a Moodle
-            $response = $client->request('GET', self::moodleUrl, [
-                'query' => [
-                    'wstoken' => $this->token,
-                    'wsfunction' => $function,
-                    'moodlewsrestformat' => 'json',
-                    'attemptid' => $attemptid,
-                    'page' => 0
-                ]
-            ]);
-            $body = $response->getBody();
-            $content = json_decode($body, true);
-
-            // Retornar los datos como JSON
-            return response()->json($content);
-            
-        } catch (\Exception $e) {
-            // Manejo de errores
-            return response()->json(['error' => 'No se pudieron obtener los cursos', 'message' => $e->getMessage()], 500);
-        }
-    }
-
-    public function postContent (Request $request)
-    {
-        $function = "mod_quiz_process_attempt";
-        
-        $attemptid=$request->
-
-        $client = new Client();
-
-        try {
-            // Hacer la petición a Moodle
-            $response = $client->request('GET', self::moodleUrl, [
-                'query' => [
-                    'wstoken' => $this->token,
-                    'wsfunction' => $function,
-                    'moodlewsrestformat' => 'json',
-                    'attemptid' => $attemptid,
-                    'page' => 0
-                ]
-            ]);
-            $body = $response->getBody();
-            $content = json_decode($body, true);
-
-            // Retornar los datos como JSON
-            return response()->json($content);
-            
         } catch (\Exception $e) {
             // Manejo de errores
             return response()->json(['error' => 'No se pudieron obtener los cursos', 'message' => $e->getMessage()], 500);
