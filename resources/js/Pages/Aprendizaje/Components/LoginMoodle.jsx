@@ -24,7 +24,7 @@ export default function LoginMoodle({ auth, unreadNotifications }) {
 
         try {
 
-            const response = await axios.post("/moodle/login", Object.fromEntries(formData), {
+            const response = await axios.post("/moodle_ws/login", Object.fromEntries(formData), {
                 withCredentials: true
             });
 
@@ -74,9 +74,6 @@ export default function LoginMoodle({ auth, unreadNotifications }) {
                             </div>
                             <Button type="submit" className="w-full bg-blue-600 text-white hover:bg-purple-600 transition">Iniciar sesión</Button>
                         </form>
-                        <button onClick={() => redirectTo('/modulo/register')} className="w-full mt-3 bg-gray-300 text-gray-700 hover:bg-gray-400 transition">
-                            Registrarse
-                        </button>
                         {error && <p className="text-red-500 text-center mt-2">{error}</p>}
                     </CardBody>
                 </Card>
