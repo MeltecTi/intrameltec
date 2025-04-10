@@ -34,6 +34,10 @@ use App\Http\Controllers\InformeSeguimientoController;
 use App\Http\Controllers\TestEmailController;
 use App\Http\Controllers\DrectorAuditoriaController;
 use App\Http\Controllers\AuthGoogleDrive;
+use App\Http\Controllers\ModuloAprendizajeController;
+use App\Http\Controllers\MoodleController;
+use App\Http\Controllers\MoodleAuthController;
+use App\Http\Middleware\MoodleAuthMiddleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -175,6 +179,27 @@ Route::middleware('auth')->group(function () {
     Route::post('hseq', [HseqController::class, 'store'])->name('resources.hseq.store');
     Route::get('/hseq/{id}', [HseqController::class, 'download'])->name('resources.hseq.download');
     Route::delete('/hseq/delete/{id}', [HseqController::class, 'destroy'])->name('resources.hseq.destroy');
+
+     /* Modulos de prendizaje */
+    Route::get('/modulo', [ModuloAprendizajeController::class, 'logIn'])->name('resources.modulo.login');
+    Route::get('/modulo/register', [ModuloAprendizajeController::class, 'register'])->name('resources.modulo.register');
+    Route::middleware([MoodleAuthMiddleware::class])->group(function () {
+        Route::get('/modulo/index', [ModuloAprendizajeController::class, 'index'])->name('modulo.index');
+        Route::get('/modulo/cursos/{id}', [ModuloAprendizajeController::class, 'contenido'])->name('modulo.curso.contenido');
+        Route::get('/modulo/cursos/contenido/paginas', [ModuloAprendizajeController::class, 'obtenerContenidoPaginas'])->name('modulo.curso.contenido.paginas');
+        Route::get('/modulo/cursos/contenido/asignaciones', [ModuloAprendizajeController::class, 'obtenerContenidoAsignaciones'])->name('modulo.curso.contenido.asignaciones');
+        Route::get('/modulo/cursos/contenido/quiz', [ModuloAprendizajeController::class, 'obtenerContenidoQuiz'])->name('modulo.curso.contenido.quiz');
+        
+        /* Backend moodle authenticated */
+        Route::get('/moodle_ws/user/{userid}', [MoodleController::class, 'getUserInfo'])->name('moodle.get.user.info');
+        Route::get('/moodle_ws/cursos_disponibles/{userid}', [MoodleController::class, 'getUserCourses'])->name('moodle.get.courses');
+        Route::get('/moodle_ws/cursos/{courseid}', [MoodleController::class, 'getUserContent'])->name('moodle.get.content');
+        Route::get('/moodle_ws/cursos/contenido/{courseid}', [MoodleController::class, 'getPagesContent'])->name('moodle.get.pages.content');
+        Route::get('/moodle_ws/cursos/contenido/asignaciones/{courseid}', [MoodleController::class, 'getAssignContent'])->name('moodle.get.courses.assign');
+    });
+    // Rutas backend moodle
+    Route::post('/moodle_ws/login', [MoodleAuthController::class, 'login']); 
+    Route::post('/moodle_ws/register', [MoodleAuthController::class, 'register']); 
 
     Route::post('/uploadFile', UploadFilesController::class);
 
