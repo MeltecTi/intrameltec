@@ -17,7 +17,7 @@ export default function ObtenerAsignaciones({ auth, unreadNotifications }) {
         const obtenerCursosMoodle = async () => {
             try {
 
-                const response = await axios.get(`/moodle/cursos/contenido/asignaciones/${courseid}`, {
+                const response = await axios.get(`/moodle_ws/cursos/contenido/asignaciones/${courseid}`, {
                     withCredentials: true
                 });
 
