@@ -17,7 +17,7 @@ export default function ObtenerContenidoCursos({ auth, unreadNotifications }) {
         const obtenerCursosMoodle = async () => {
             try {
 
-                const response = await axios.get(`/moodle/cursos/${courseid}`, {
+                const response = await axios.get(`/moodle_ws/cursos/${courseid}`, {
                     withCredentials: true
                 });
 
