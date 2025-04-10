@@ -14,7 +14,7 @@ export default function CursosDisponibles() {
     useEffect(() => {
         const obtenerCursosMoodle = async () => {
             try {
-                const response = await axios.get(`/moodle/cursos_disponibles/${userid}`, {
+                const response = await axios.get(`/moodle_ws/cursos_disponibles/${userid}`, {
                     withCredentials: true
                 });
 
