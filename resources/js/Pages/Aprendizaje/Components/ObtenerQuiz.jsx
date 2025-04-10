@@ -15,7 +15,7 @@ export default function ObtenerQuiz({ auth, unreadNotifications }) {
         const obtenerCursosMoodle = async () => {
             try {
 
-                const response = await axios.get(`/moodle/cursos/${courseid}`, {
+                const response = await axios.get(`/moodle_ws/cursos/${courseid}`, {
                     withCredentials: true
                 });
 
@@ -83,7 +83,7 @@ export default function ObtenerQuiz({ auth, unreadNotifications }) {
                         <div className="relative w-full overflow-hidden" style={{ paddingBottom: "75%" }}>
                             {/* {iframeSrc ? ( */}
                             <iframe
-                                src={`http://127.0.0.1/moodle/mod/hvp/embed.php?id=${quiz.id}`}
+                                src={`https://internal.meltec.com.co/public/moodle/mod/hvp/embed.php?id=${quiz.id}`}
                                 className="absolute top-0 left-0 w-full h-full rounded-lg"
                                 height="256"
                                 allowFullScreen
